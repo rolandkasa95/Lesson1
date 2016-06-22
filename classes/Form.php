@@ -2,30 +2,26 @@
 
 class Form
 {
-    const NAME='form1';
+    public $id;
     public $name;
-    public $db;
+    public $fields;
 
-    public function __construct($name, $db)
+    public function __construct($id, $name, array $fields = null)
     {
-        $this->setName($name);
-        $this->db = $db;
+        $this->name=$name;
+        $this->id = $id;
+        $this->fields = $fields;
     }
 
-    public function __destruct()
-    {
-        echo "Cleaning finished";
+    public function getStartTag(){
+        return "<form id=\"$this->id\" name=\"$this->name\" action=\"../index.php\" method=\"POST\">";
     }
 
-    public function setName($name = null){
-        if ($name){
-            $this->name = $name;
-        }else{
-            $this->name = self::NAME;
-        }
+    public function getFields(){
+        return $this->fields;
     }
 
-    public function getName(){
-        return $this->name;
+    public function getEndTag(){
+        return "</form>";
     }
 }
