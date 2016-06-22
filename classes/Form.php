@@ -7,7 +7,18 @@ class Form
     public  $name = 'Login';
     public $valid = false;
     public $id;
-    
+
+    public function __construct($name,$id, array $elements = null)
+    {
+        $this->name=$name;
+        $this->id=$id;
+        if($elements){
+            foreach ($elements as $element){
+                $this->elements[] = $element;
+            }
+        }
+    }
+
     public function getStartTag($attributes = null){
         if (!$attributes) return '<form>';
         $tag = "<form ";
@@ -48,5 +59,9 @@ class Form
 
     public function getId(){
         return $this->id;
+    }
+
+    public function getElements(){
+        return $this->elements;
     }
 }
