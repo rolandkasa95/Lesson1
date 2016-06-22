@@ -2,66 +2,30 @@
 
 class Form
 {
-    const NAME = 'StdForm';
-    protected  $elements;
-    public  $name = 'Login';
-    public $valid = false;
-    public $id;
+    const NAME='form1';
+    public $name;
+    public $db;
 
-    public function __construct($name,$id, array $elements = null)
+    public function __construct($name, $db)
     {
-        $this->name=$name;
-        $this->id=$id;
-        if($elements){
-            foreach ($elements as $element){
-                $this->elements[] = $element;
-            }
-        }
+        $this->setName($name);
+        $this->db = $db;
     }
 
-    public function getStartTag($attributes = null){
-        if (!$attributes) return '<form>';
-        $tag = "<form ";
-        foreach ($attributes as $key => $value){
-            $tag .= " $key =\"value\" ";
-        }
-        $tag .=">";
-        return $tag;
-    }
-
-    public function getEndTag(){
-        return "</form>";
+    public function __destruct()
+    {
+        echo "Cleaning finished";
     }
 
     public function setName($name = null){
-        $this->name=$name;
-        return $this;
+        if ($name){
+            $this->name = $name;
+        }else{
+            $this->name = self::NAME;
+        }
     }
 
     public function getName(){
         return $this->name;
-    }
-
-    public function set($proprety, $value){
-        $this->$proprety=$value;
-    }
-
-    public function setFormAttributes($attributes){
-        foreach ($attributes as $key => $value){
-            $this->$key = $value;
-        }
-    }
-
-    public function setId($id){
-        $this->id=$id;
-        return $this;
-    }
-
-    public function getId(){
-        return $this->id;
-    }
-
-    public function getElements(){
-        return $this->elements;
     }
 }
