@@ -1,20 +1,18 @@
 <?php
 
-class Form
-{
+class Form{
     public $id;
     public $name;
     public $fields;
 
-    public function __construct($id, $name, array $fields = null)
-    {
-        $this->name=$name;
+    public function __construct($name, $id, array $fields = null){
+        $this->name = $name;
         $this->id = $id;
         $this->fields = $fields;
     }
 
     public function getStartTag(){
-        return "<form id=\"$this->id\" name=\"$this->name\" action=\"../index.php\" method=\"POST\">";
+        return "<form id=\"$this->id\" name=\"$this->name\" action=\"index.php\" method=\"post\">";
     }
 
     public function getFields(){
@@ -22,6 +20,6 @@ class Form
     }
 
     public function getEndTag(){
-        return "</form>";
+        return '</form>';
     }
 }
