@@ -11,7 +11,7 @@ class AppController
 
     public function init(){
         $config = require 'Config/config,php';
-        $pdo = ObjectFactoryService::getDd($config);
+        $pdo = ObjectFactoryService::getDb($config);
         $model = ObjectFactoryService::getModel($pdo);
         $form = new Form($model, $config['form']['register']);
         $form->generateFields();
