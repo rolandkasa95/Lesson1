@@ -5,7 +5,7 @@ class Select{
     public $name;
     public $required = false;
     public $multiple = false;
-    public $options = [];
+    public $options;
     public $validator;
     public $valid = false;
 

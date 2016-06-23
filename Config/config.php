@@ -1,46 +1,46 @@
 <?php
-return [
-    'db' => [
-        'dsn' => 'mysql:host=127.0.0.1;dbname=site',
-        'user' => 'admin',
-        'pass' => 'test',
-    ],
-    'forms' => [
-        'register' => [
+return array(
+    'db' => array(
+        'dsn' => 'mysql:host=localhost;dbname=site',
+        'user' => 'root',
+        'pass' => 'Kasamargit22',
+    ),
+    'forms' => array(
+        'register' => array(
             'name' => 'register',
             'id' => 'form1',
             'method' => 'post',
             'action' => 'index.php',
-            'fields' => [
-                'first_name' => [
+            'fields' => array(
+                'first_name' => array(
                     'label' => 'First Name',
                     'type' => 'text',
                     'name' => 'first_name',
                     'priority' => 1,
                     'required' => true,
                     'value' => '',
-                    'validator' => [
-                        'StringLength' => [
+                    'validator' => array(
+                        'StringLength' => array(
                             'minimum' => 2,
                             'maximum' => 30,
-                        ],
-                    ],
-                ],
-                'last_name' => [
+                            ),
+                        ),
+                    ),
+                'last_name' => array(
                     'label' => 'Last Name',
                     'type' => 'text',
                     'name' => 'last_name',
                     'priority' => 2,
                     'required' => true,
                     'value' => '',
-                    'validator' => [
-                        'StringLength' => [
+                    'validator' => array(
+                        'StringLength' => array(
                             'minimum' => 2,
                             'maximum' => 30,
-                        ],
-                    ],
-                ],
-                'email' => [
+                        ),
+                    ),
+                ),
+                'email' => array(
                     'label' => 'Email',
                     'type' => 'text',
                     'name' => 'email',
@@ -48,8 +48,8 @@ return [
                     'required' => true,
                     'value' => '',
                     'validator' => 'email',
-                ],
-                'emailPreferredContact' => [
+                ),
+                'emailPreferredContact' => array(
                     'label' => 'Contact By Email',
                     'type' => 'checkbox',
                     'name' => 'email_preferred_contact',
@@ -57,8 +57,8 @@ return [
                     'required' => true,
                     'value' => false,
                     'validator' => 'boolean',
-                ],
-                'country' => [
+                ),
+                'country' => array(
                     'label' => 'Country',
                     'type' => 'select',
                     'name' => 'country',
@@ -68,35 +68,35 @@ return [
                     'value' => '',
                     'options' => 'country',
                     'validator' => 'InArray',
-                ],
-                'submit' => [
+                ),
+                'submit' => array(
                     'type' => 'submit',
                     'priority' => 6,
                     'value' => 'Submit',
-                ],
-            ],
-        ],
-        'login' => [
+                ),
+            ),
+        ),
+        'login' => array(
             'name' => 'login',
             'id' => 'form1',
             'method' => 'post',
             'action' => 'index.php',
-            'fields' => [
-                'username' => [
+            'fields' => array(
+                'username' => array(
                     'type' => 'text',
                     'name' => 'username',
                     'priority' => 1,
                     'required' => true,
                     'value' => '',
-                ],
-                'password' => [
+                ),
+                'password' => array(
                     'type' => 'password',
                     'name' => 'password',
                     'priority' => 2,
                     'required' => true,
                     'value' => '',
-                ],
-            ],
-        ],
-    ],
-];
+                ),
+            ),
+        ),
+    ),
+);

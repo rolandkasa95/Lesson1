@@ -11,11 +11,10 @@ class ObjectFactoryService {
     public static function getDb(array $connectParams = null){
         if(!self::$pdo){
             try{
-                $config = [PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION];
                 self::$pdo = new PDO($connectParams['db']['dsn'],
                     $connectParams['db']['user'],
-                    $connectParams['db']['pass'],
-                    $config);
+                    $connectParams['db']['pass']
+                );
             }catch(PDOException $e){
                 echo 'Failed connection' . $e->getMessage();
             }

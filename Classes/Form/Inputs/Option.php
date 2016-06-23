@@ -30,7 +30,7 @@ class Option
             $value = ucwords($option);
             $this->value = $value;
             $this->optionString = $value;
-            $results[] = $this->getOption($option);
+            $results = $this->getOption($option);
         }
         return $results ?: false;
     }

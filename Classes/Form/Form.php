@@ -4,8 +4,8 @@
  */
 class Form{
     public $model;
-    public $config = [];
-    public $fields = [];
+    public $config;
+    public $fields;
     public $data;
     public $isValid = false;
 
@@ -64,7 +64,6 @@ class Form{
                     require_once CLASSES . 'Form/Inputs/Option.php';
                     $newField = new Select();
                     $option = new Option();
-                    $options = [];
                     $values = null;
                     $field['multiple'] ? $newField->setMultiple($field['multiple']) : null;
                     $field['label'] ? $newField->setLabel($field['label']) : null;
