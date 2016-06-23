@@ -1,10 +1,8 @@
 <?php
-
 /**
- * Class StringLength
+ * Sample Static Class Validator
  */
-class StringLength
-{
+class StringLength {
     public static $minimum;
     public static $maximum;
 
@@ -13,16 +11,14 @@ class StringLength
      * @return bool
      */
     public static function validate($value = null){
-        if(!is_string($value) || !self::$minimum || !self::$maximum){
-            return false;
-        }else{
-            $length = strlen($value);
-            if ($length <= self::$maximum && $length >= self::$minimum){
-                return true;
-            }else{
-                return false;
-            }
+        if(!is_string($value)
+            || !self::$minimum
+            || !self::$maximum)return false;
+        $length = strlen($value);
+        if($length <= self::$maximum && $length >= self::$minimum) {
+            return true;
         }
+        return false;
     }
 
     /**
@@ -38,5 +34,4 @@ class StringLength
     public static function setMaximum($value){
         self::$maximum = $value;
     }
-
 }

@@ -1,7 +1,7 @@
 <html>
-    <body>
-        <div>
-            <?php echo 'Thanks for the Registration' ?>
-        </div>
-    </body>
+<body>
+<div id="content">
+    <?php echo 'Thanks for your registration'?>
+</div>
+</body>
 </html>

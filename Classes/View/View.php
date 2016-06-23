@@ -1,9 +1,8 @@
 <?php
-
 /**
  * Class View
  */
-class View{
+class View {
     public $results;
 
     /**

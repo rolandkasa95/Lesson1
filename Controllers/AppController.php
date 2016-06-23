@@ -1,25 +1,30 @@
 <?php
-
+/**
+ * App Controller Class
+ */
 require CLASSES . 'ObjectFactoryService.php';
 require CLASSES . 'Form/Form.php';
 require CLASSES . 'View/View.php';
 
-class AppController
-{
+class AppController {
     const USERS_TABLE = 'users';
     public $view;
 
+    /**
+     * Initial Controller method
+     */
     public function init(){
-        $config = require 'Config/config,php';
+        //Present the login form
+        $config = require 'Config/config.php';
         $pdo = ObjectFactoryService::getDb($config);
         $model = ObjectFactoryService::getModel($pdo);
-        $form = new Form($model, $config['form']['register']);
+        $form = new Form($model, $config['forms']['register']);
         $form->generateFields();
         $this->view = new View();
         if(!$_POST){
-            $this->view->set('form',$form);
+            $this->view->set('form', $form);
             $this->view->render('register');
-        }else{
+        } else {
             $form->setData($_POST);
             $form->validate();
             if($form->isValid){

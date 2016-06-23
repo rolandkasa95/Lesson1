@@ -1,25 +1,26 @@
 <?php
-
+//A objects factory class
 require 'Session.php';
 require 'Model/Model.php';
 
-class ObjectFactoryService
-{
+class ObjectFactoryService {
     public static $pdo;
     public static $session;
     public static $model;
 
     public static function getDb(array $connectParams = null){
-        if (!self::$pdo){
+        if(!self::$pdo){
             try{
+                $config = [PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION];
                 self::$pdo = new PDO($connectParams['db']['dsn'],
                     $connectParams['db']['user'],
-                    $connectParams['db']['pass']
-                );
-            }catch (PDOException $e){
-                echo "Connection Failed" . $e->getMessage();
+                    $connectParams['db']['pass'],
+                    $config);
+            }catch(PDOException $e){
+                echo 'Failed connection' . $e->getMessage();
             }
         }
+        return self::$pdo;
     }
 
     public static function getSession(){
